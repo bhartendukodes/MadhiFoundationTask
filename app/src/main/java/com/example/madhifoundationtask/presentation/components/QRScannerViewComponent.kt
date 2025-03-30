@@ -1,9 +1,9 @@
 package com.example.madhifoundationtask.presentation.components
 
+import android.annotation.SuppressLint
 import android.graphics.Rect
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.camera.core.CameraSelector
 import androidx.camera.core.ImageAnalysis
 import androidx.camera.core.Preview
 import androidx.camera.lifecycle.ProcessCameraProvider
@@ -27,7 +27,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Image
+import androidx.compose.material.icons.filled.AccountCircle
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -60,6 +60,7 @@ import java.util.concurrent.Executors
 /**
  * Component for QR code scanning with camera preview and auto-zoom
  */
+@SuppressLint("UnusedBoxWithConstraintsScope")
 @Composable
 fun QRScannerViewComponent(
     onQRCodeScanned: (String) -> Unit,
@@ -91,7 +92,6 @@ fun QRScannerViewComponent(
 
     // Scanner UI
     BoxWithConstraints(modifier = Modifier.fillMaxSize()) {
-        // Camera preview
         AndroidView(
             factory = { previewView },
             modifier = Modifier.fillMaxSize()
@@ -207,7 +207,7 @@ private fun ScannerOverlay(
                     contentAlignment = Alignment.Center
                 ) {
                     Icon(
-                        imageVector = Icons.Default.Image,
+                        imageVector = Icons.Default.AccountCircle,
                         contentDescription = "Pick from Gallery",
                         tint = Color.White,
                         modifier = Modifier.size(32.dp)
